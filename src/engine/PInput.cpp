@@ -275,12 +275,12 @@ bool ControllerFound() {
 }
 
 int Vibrate(int length) {
-
+#ifndef __RETROFW__
 	if (SDL_GameControllerRumble(Controller, vibration, vibration, length) != 0)
 		return -1;
 	if (SDL_HapticRumblePlay(Haptic, 0.5, length) != 0)
 		return -1;
-	
+#endif
 	return 0;
 
 }

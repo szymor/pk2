@@ -8,6 +8,9 @@
 #include "engine/PUtils.hpp"
 
 #include <SDL_mixer.h>
+#ifdef __RETROFW__
+#define Mix_ClearError  SDL_ClearError
+#endif
 
 #include <cstring>
 #include <queue>

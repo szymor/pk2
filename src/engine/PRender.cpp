@@ -8,8 +8,11 @@
 #include "engine/PLog.hpp"
 #include "engine/types.hpp"
 
-#ifndef __ANDROID__
+#if !defined(__ANDROID__) && !defined(__RETROFW__)
 #include "engine/render/PGl.hpp"
+#endif
+
+#ifndef __ANDROID__
 #include "engine/render/PSdlSoft.hpp"
 #endif
 
@@ -217,6 +220,9 @@ int init(int width, int height, const char* name, const char* icon, int render_m
 				render_method = RENDERER_SDL_SOFTWARE;
 				PLog::Write(PLog::DEBUG, "PRender", "Windows XP");
 			}
+		#elif __RETROFW__
+
+		render_method = RENDERER_SDL;
 
 		#else
 
@@ -278,6 +284,8 @@ int init(int width, int height, const char* name, const char* icon, int render_m
     #ifndef __ANDROID__
 		case RENDERER_SDL_SOFTWARE:
 			renderer = new PSdlSoft(width, height, window); break;
+    #endif
+    #if !defined(__ANDROID__) && !defined(__RETROFW__)
 		case RENDERER_OPENGL:
 			renderer = new PGl(width, height, window); break;
 		case RENDERER_OPENGLES:
