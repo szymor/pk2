@@ -15,6 +15,7 @@
 
 *.zip
 *.out
+*.opk
 
 /mingw/i686/build/
 /mingw/i686/PK2/

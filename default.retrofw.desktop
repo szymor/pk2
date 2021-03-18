@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Name=Pekka Kana 2
+Comment=A jump'n'run game made in the spirit of classic platformers
+Icon=pk2
+Exec=bin/pekka-kana-2
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=games;
